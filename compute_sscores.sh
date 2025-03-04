@@ -24,7 +24,4 @@ awk '{
 
 plink2 --bfile ${bed} --score ${scorefile}.tmp no-mean-imputation header-read cols=+scoresums --score-col-nums 3-${ncols} --out ${OUT_SCORE_PATH}/chr${chr}_part${part_i}_sub${part_sub}
 
-snpeff_name=$(basename ${scorefile})
-mv ${scorefile}.tmp ${OUT_WEIGHT_PATH}/${snpeff_name}
-
 
