@@ -43,10 +43,10 @@ pgscatalog-aggregate -s target_batch1.sscore target_batch3.sscore target_batch3.
 
 zcat aggregated_ref/aggregated_scores.txt.gz > aggregated_ref/aggregated_scores.txt
 zcat aggregated_target/aggregated_scores.txt.gz  | tail -n+2 > aggregated_target/aggregated_scores.txt
-cat aggregated_ref/aggregated_scores.txt aggregated_target/aggregated_scores.txt > all_aggregated_scores.txt
 
 # Read more about file format at https://pygscatalog.readthedocs.io/en/latest/how-to/guides/ancestry.html
-pgscatalog-ancestry-adjust --agg_scores all_aggregated_scores.txt.gz \
+pgscatalog-ancestry-adjust \
+    --agg_scores aggregated_ref/all_aggregated_scores.txt.gz \
     --psam target.psam \
     --ref_pcs ref.pcs \
     --target_pcs target.pcs \
@@ -54,3 +54,6 @@ pgscatalog-ancestry-adjust --agg_scores all_aggregated_scores.txt.gz \
     --dataset hgdp \
     --reference reference \
     --outdir ancestry_results
+
+
+
