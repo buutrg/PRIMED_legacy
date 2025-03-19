@@ -22,7 +22,7 @@ awk '{
     print $0
 }' OFS="\t" > ${scorefile}.tmp
 
-plink2 --bfile ${bed} --score ${scorefile}.tmp no-mean-imputation header-read cols=+scoresums --score-col-nums 3-${ncols} --out ${OUT_SCORE_PATH}/chr${chr}_part${part_i}_sub${part_sub}
+plink2 --bfile ${bed} --score ${scorefile}.tmp no-mean-imputation header-read cols=+scoresums,+denom,+fid --score-col-nums 3-${ncols} --out ${OUT_SCORE_PATH}/chr${chr}_part${part_i}_sub${part_sub}
 
 
 #####################################
